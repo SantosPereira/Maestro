@@ -1,4 +1,4 @@
-package com.springboot.application.controller;
+package com.springboot.application.Controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,9 +21,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.springboot.application.model.Dispositivo;
-import com.springboot.application.model.Estoque;
-import com.springboot.application.model.Produto;
+import com.springboot.application.Model.Dispositivo;
+import com.springboot.application.Model.Estoque;
+import com.springboot.application.Model.Produto;
 import com.springboot.application.repository.DispositivoRepository;
 
 @Controller
@@ -78,39 +78,33 @@ public class DispositivoController {
 
 		return retornaCadastroDispositivo(new Dispositivo());
 	}
-	
-	
-	
-	@PostMapping("**/buscarPorNomeDispositivo") //aqui faz a busca pelo nome
-	public ModelAndView buscarPorNomeDispositivo(@RequestParam("nome") String nome){
+
+	@PostMapping("**/buscarPorNomeDispositivo") // aqui faz a busca pelo nome
+	public ModelAndView buscarPorNomeDispositivo(@RequestParam("nome") String nome) {
 		ModelAndView mv = new ModelAndView("listar_dispositivo");
 		mv.addObject("listaDispositivos", dispositivoRepository.buscarPorNome(nome));
 		mv.addObject("dispositivoObjeto", new Dispositivo());
 		return mv;
 	}
-	
-	
+
 	@GetMapping("/dispositivos/exportarCsv")
-    public void exportCSV(HttpServletResponse response) throws Exception {
+	public void exportCSV(HttpServletResponse response) throws Exception {
 
-        // set file name and content type
-        String filename = "dispositivo.csv";
+		// set file name and content type
+		String filename = "dispositivo.csv";
 
-        response.setContentType("text/csv");
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, 
-                   "attachment; filename=\"" + filename + "\"");
+		response.setContentType("text/csv");
+		response.setHeader(HttpHeaders.CONTENT_DISPOSITION,
+				"attachment; filename=\"" + filename + "\"");
 
-        // create a csv writer
-        StatefulBeanToCsv<Dispositivo> writer = new StatefulBeanToCsvBuilder
-                    <Dispositivo>(response.getWriter())
-                .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER).
-                        withSeparator(CSVWriter.DEFAULT_SEPARATOR)
-                .withOrderedResults(false).build();
+		// create a csv writer
+		StatefulBeanToCsv<Dispositivo> writer = new StatefulBeanToCsvBuilder<Dispositivo>(response.getWriter())
+				.withQuotechar(CSVWriter.NO_QUOTE_CHARACTER).withSeparator(CSVWriter.DEFAULT_SEPARATOR)
+				.withOrderedResults(false).build();
 
-        // write all employees to csv file
-        writer.write(dispositivoRepository.findAll());
+		// write all employees to csv file
+		writer.write(dispositivoRepository.findAll());
 
-    }
-	
+	}
 
 }

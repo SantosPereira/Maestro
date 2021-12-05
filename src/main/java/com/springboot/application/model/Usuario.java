@@ -1,4 +1,4 @@
-package com.springboot.application.model;
+package com.springboot.application.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,34 +8,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="usuario")
+@Table(name = "usuario")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name="nome")
+
+	@Column(name = "nome")
 	private String nome;
-	
-	@Column(name="email" )
+
+	@Column(name = "email")
 	private String email;
-	
-	@Column(name="nome_usuario")
+
+	@Column(name = "nome_usuario")
 	private String nomeUsuario;
-	
-	@Column(name="filial")
+
+	@Column(name = "filial")
 	private String filial;
-	
-	
-	@Column(name="setor")
+
+	@Column(name = "setor")
 	private String setor;
-	
-	@Column(name="funcao")
+
+	@Column(name = "funcao")
 	private String funcao;
-	
-	
-	
 
 	public Usuario() {
 		super();
@@ -107,9 +103,5 @@ public class Usuario {
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
 	}
-	
-	
-	
-	
-	
+
 }

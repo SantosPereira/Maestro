@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.springboot.application.model.Dispositivo;
+import com.springboot.application.Model.Dispositivo;
 import com.springboot.application.repository.DispositivoRepository;
 import com.springboot.application.service.DispositivoService;
 

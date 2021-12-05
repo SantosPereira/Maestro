@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="head_pagina">
-	<meta charset="ISO-8859-1">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Pagina Principal</title>
+	<title>Página Principal</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link href="/style.css" rel="stylesheet" />
+	<link href="/css/style.css" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
 	<div th:fragment="menu">
 
-		<div class="sidebar" >
+		<div class="sidebar">
 			<input type="checkbox" id="check">
 			<label for="check">
 				<i class="fas fa-bars" id="btn"></i>
@@ -23,11 +23,11 @@
 			<header>Menu</header>
 			<a href="/" class="active">
 				<i class="fas fa-chart-line"></i>
-				<span>Pagina Inicial</span>
+				<span>Página Inicial</span>
 			</a>
 			<a href="" th:href="@{/cadastro/usuarios/listar}">
 				<i class="fas fa-users"></i>
-				<span>Usuario</span>
+				<span>Usuário</span>
 			</a>
 			<a href="" th:href="@{/cadastro/produto/listar}">
 				<i class="fas fa-box-open"></i>
@@ -91,7 +91,7 @@
 
 			<!-- Copyright -->
 			<div class="footer-copyright text-center py-3">
-				<a> 2020 Copyright Vuribi Software</a>
+				<a>2020 Copyright Vuribi Software</a>
 			</div>
 			<!-- Copyright -->
 

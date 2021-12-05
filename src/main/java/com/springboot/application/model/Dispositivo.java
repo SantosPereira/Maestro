@@ -1,4 +1,4 @@
-package com.springboot.application.model;
+package com.springboot.application.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,24 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="dispositivo")
+@Table(name = "dispositivo")
 public class Dispositivo {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name="nome")
+
+	@Column(name = "nome")
 	private String nome;
-	
-	@Column(name="imei")
+
+	@Column(name = "imei")
 	private String imei;
-	
-	@Column(name="modelo")
+
+	@Column(name = "modelo")
 	private String modelo;
 
-	
-	
 	public Dispositivo() {
 		super();
 	}
@@ -69,8 +67,5 @@ public class Dispositivo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	
-	
-	
-	
+
 }

@@ -1,4 +1,4 @@
-package com.springboot.application.model;
+package com.springboot.application.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,30 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="produto")
+@Table(name = "produto")
 public class Produto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name="nome")
+
+	@Column(name = "nome")
 	private String nome;
-	
-	@Column(name="categoria")
+
+	@Column(name = "categoria")
 	private String categoria;
-	
+
 	@Column(name = "quantidade")
 	private String quantidade;
-	
-	@Column(name="estoque")
-	private String estoque;
-	
-	
-	
-	
 
-	public Produto(Long id, String nome,String categoria, String quantidade, String estoque) {
+	@Column(name = "estoque")
+	private String estoque;
+
+	public Produto(Long id, String nome, String categoria, String quantidade, String estoque) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -40,12 +36,9 @@ public class Produto {
 		this.estoque = estoque;
 	}
 
-	
-
 	public Produto() {
 		super();
 	}
-
 
 	public Long getId() {
 		return id;
@@ -70,6 +63,7 @@ public class Produto {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+
 	public String getQuantidade() {
 		return quantidade;
 	}
@@ -85,7 +79,5 @@ public class Produto {
 	public void setEstoque(String estoque) {
 		this.estoque = estoque;
 	}
-	
-	
-	
+
 }

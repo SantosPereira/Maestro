@@ -19,8 +19,8 @@ import com.springboot.application.repository.EstoqueRepository;
 
 @Service
 public class EstoquePdfGerar {
-	
-	private static final String PDF_RESOURCES = "src/main/resources/templates/";
+
+    private static final String PDF_RESOURCES = "src/main/resources/templates/";
     private EstoqueRepository estoqueRepository;
     private SpringTemplateEngine templateEngine;
 
@@ -35,7 +35,6 @@ public class EstoquePdfGerar {
         String html = loadAndFillTemplate(context);
         return renderPdf(html);
     }
-
 
     private File renderPdf(String html) throws IOException, DocumentException {
         File file = File.createTempFile("estoque", ".pdf");
@@ -58,6 +57,5 @@ public class EstoquePdfGerar {
     private String loadAndFillTemplate(Context context) {
         return templateEngine.process("pdf_estoque", context);
     }
-	
-	
+
 }

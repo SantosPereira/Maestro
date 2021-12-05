@@ -1,4 +1,4 @@
-package com.springboot.application.model;
+package com.springboot.application.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,26 +10,21 @@ import javax.persistence.Table;
 import com.lowagie.text.pdf.PdfPCell;
 
 @Entity
-@Table(name="estoque")
+@Table(name = "estoque")
 public class Estoque {
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name="nome")
+
+	@Column(name = "nome")
 	private String nome;
-	
-	@Column(name="tipo")
+
+	@Column(name = "tipo")
 	private String tipo;
-	
-	@Column(name="quantidade")
+
+	@Column(name = "quantidade")
 	private String quantidade;
-	
-	
-	
-	
-	
 
 	public Estoque() {
 		super();
@@ -74,10 +69,5 @@ public class Estoque {
 	public void setQuantidade(String quantidade) {
 		this.quantidade = quantidade;
 	}
-	
-	
-	
-	
-	
 
 }
