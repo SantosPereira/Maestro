@@ -13,13 +13,12 @@
 
 <body>
 	<div th:fragment="menu">
-
+		<input type="checkbox" id="check">
+		<label for="check">
+			<i class="fas fa-bars" id="btn"></i>
+			<i class="fas fa-times" id="cancel"></i>
+		</label>
 		<div class="sidebar">
-			<input type="checkbox" id="check">
-			<label for="check">
-				<i class="fas fa-bars" id="btn"></i>
-				<i class="fas fa-times" id="cancel"></i>
-			</label>
 			<header>Menu</header>
 			<a href="/" class="active">
 				<i class="fas fa-chart-line"></i>

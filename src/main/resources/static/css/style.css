@@ -9,7 +9,6 @@
 .sidebar{
     position: fixed;
     width: 240px;
-    left: -240;
     height: 100%;
     background: black;
     transition: all .5s ease;
@@ -47,6 +46,10 @@ a.acive, a:hover{
     color: rgb(9, 255, 0);
 }
 
+.sidebar {
+    margin-top: -24px;
+}
+
 .sidebar a i{
     font-size: 23px;
     margin-right: 16px;
@@ -62,19 +65,21 @@ a.acive, a:hover{
 }
 
 label #btn, label #cancel{
-    position: absolute;
+    position: fixed;
     cursor: pointer;
     color: aliceblue;
     border-radius: 5px;
     border: 1px solid black;
-    margin: 15px 30px;
+    margin: 0 30px;
     font-size: 28px;
     background: black;
     height: 45px;
     width: 45px;
     text-align: center;
     line-height: 45px;
-    transition: all .3s ease;
+    /* transition: all .3s ease; */
+    z-index: 10;
+    visibility: visible;
 }
 
 label #cancel{
@@ -84,12 +89,13 @@ label #cancel{
 
 #check:checked ~ .sidebar{
     left: 0;
+    opacity: 20%;
+    visibility: hidden;
 }
 
 #check:checked ~ label #btn{
-    margin-left: 245px ;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 100%;
+    visibility: visible;
 }
 
 @media(max-width: 860px){.sidebar{

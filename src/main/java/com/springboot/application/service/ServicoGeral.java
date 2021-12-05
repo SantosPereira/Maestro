@@ -1,4 +1,4 @@
-package com.springboot.application.service;
+package com.springboot.application.Service;
 
 import com.springboot.application.Model.Usuario;
 

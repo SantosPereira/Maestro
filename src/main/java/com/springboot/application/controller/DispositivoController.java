@@ -24,7 +24,7 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.springboot.application.Model.Dispositivo;
 import com.springboot.application.Model.Estoque;
 import com.springboot.application.Model.Produto;
-import com.springboot.application.repository.DispositivoRepository;
+import com.springboot.application.Repository.DispositivoRepository;
 
 @Controller
 public class DispositivoController {

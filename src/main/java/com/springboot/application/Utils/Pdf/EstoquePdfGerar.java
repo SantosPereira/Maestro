@@ -1,4 +1,4 @@
-package com.springboot.application.pdf;
+package com.springboot.application.Utils.Pdf;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +15,7 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.lowagie.text.DocumentException;
-import com.springboot.application.repository.EstoqueRepository;
+import com.springboot.application.Repository.EstoqueRepository;
 
 @Service
 public class EstoquePdfGerar {

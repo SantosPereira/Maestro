@@ -1,4 +1,4 @@
-package com.springboot.application.service.impl;
+package com.springboot.application.Service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,8 +10,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.springboot.application.Model.Estoque;
-import com.springboot.application.repository.EstoqueRepository;
-import com.springboot.application.service.EstoqueService;
+import com.springboot.application.Repository.EstoqueRepository;
+import com.springboot.application.Service.EstoqueService;
 
 @Service
 public class EstoqueServiceImpl implements EstoqueService{

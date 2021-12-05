@@ -1,4 +1,4 @@
-package com.springboot.application.service.impl;
+package com.springboot.application.Service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,8 +11,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.springboot.application.Model.Dispositivo;
-import com.springboot.application.repository.DispositivoRepository;
-import com.springboot.application.service.DispositivoService;
+import com.springboot.application.Repository.DispositivoRepository;
+import com.springboot.application.Service.DispositivoService;
 
 
 public  class DispositivoServiceImpl implements DispositivoService{

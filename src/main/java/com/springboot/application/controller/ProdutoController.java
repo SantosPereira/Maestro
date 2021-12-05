@@ -28,9 +28,9 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.springboot.application.Model.Estoque;
 import com.springboot.application.Model.Produto;
 import com.springboot.application.Model.Usuario;
-import com.springboot.application.repository.EstoqueRepository;
-import com.springboot.application.repository.ProdutoRepository;
-import com.springboot.application.service.ProdutoService;
+import com.springboot.application.Repository.EstoqueRepository;
+import com.springboot.application.Repository.ProdutoRepository;
+import com.springboot.application.Service.ProdutoService;
 
 @Controller
 public class ProdutoController {
