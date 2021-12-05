@@ -1,47 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
 
-*{
+* {
+    text-decoration: none;
     margin: 0;
     padding: 0;
-    text-decoration: none;
 }
 
-.sidebar{
+.sidebar {
     position: fixed;
+    background: black;
+    
     width: 240px;
     height: 100%;
-    background: black;
+    
     transition: all .5s ease;
 }
 
-.sidebar header{
-    font-size: 28px;
+.sidebar header {
+    user-select: none;
     color: azure;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
     line-height: 70px;
     text-align: center;
+    
     background:black ;
-    user-select: none;
-    font-family: 'Montserrat', sans-serif;
 }
 
-.sidebar a{
+.sidebar a {
     display: block;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    
     height: 65px;
     width: 100%;
-    color: white;
     line-height: 65px;
     padding-left: 30px;
+    
     box-sizing: border-box;
     border-bottom: 1px solid black;
     border-top: 1px solid  rgb(255, 255, 255, .1);
     border-left: 5px solid transparent;
-    font-family: 'Open Sans', sans-serif;
+    
     transition: all .5s ease;
-
-
 }
 
-a.acive, a:hover{
+a.active, a:hover {
 /*     border-left: 5px solid blueviolet; */
     color: rgb(9, 255, 0);
 }
@@ -50,21 +54,21 @@ a.acive, a:hover{
     margin-top: -24px;
 }
 
-.sidebar a i{
+.sidebar a i {
     font-size: 23px;
     margin-right: 16px;
 }
 
-.sidebar a span{
+.sidebar a span {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-#check{
+#check {
     display: none;
 }
 
-label #btn, label #cancel{
+label #btn, label #cancel {
     position: fixed;
     cursor: pointer;
     color: aliceblue;
@@ -82,62 +86,70 @@ label #btn, label #cancel{
     visibility: visible;
 }
 
-label #cancel{
+label #cancel {
     opacity: 0;
     visibility: hidden;
 }
 
-#check:checked ~ .sidebar{
-    left: 0;
-    opacity: 20%;
+#check:checked ~ .sidebar {
+    display: fixed;
+    opacity: 0%;
+    animation: desaparece normal 0.4s;
     visibility: hidden;
 }
 
-#check:checked ~ label #btn{
+@keyframes desaparece {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0%;
+    }
+}
+
+#check:checked ~ label #btn {
     opacity: 100%;
     visibility: visible;
 }
 
-@media(max-width: 860px){.sidebar{
-    height: auto;
-    width: 70px;
-    left: 0;
-    margin: 100px 0;
+
+
+
+@media (max-width: 860px) {
+    .sidebar {
+        height: auto;
+        width: 70px; 
+        left: 0;
+        margin: 100px 0;
+    }
+
+    header, #btn, #cancel {
+        display: none;
+    }
+
+    span {
+        position: absolute;
+        margin-left: 23px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .sidebar a {
+        height: 60px;
+    }
+
+    .sidebar a i {
+        margin-left: -10px;
+    }
+
+    a:hover {
+        width: 200px;
+        background: inherit;
+    }
+
+    .sidebar a:hover span {
+        opacity: 1;
+        visibility: visible;
+    }
+
 }
-
-header, #btn, #cancel{
-    display: none;
-}
-
-span{
-    position: absolute;
-    margin-left: 23px;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.sidebar a {
-    height: 60px;
-}
-
-.sidebar a i{
-    margin-left: -10px;
-}
-
-a:hover{
-    width: 200px;
-    background: inherit;
-}
-
-.sidebar a:hover span{
-    opacity: 1;
-    visibility: visible;
-}
-
-}
-
-
-
-
-
-

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
-
 <head th:replace="fragments :: head_pagina">
 	<meta charset="utf-8" />
-
 </head>
 <style>
 	#div1 {
@@ -17,8 +15,6 @@
 		float: center;
 
 	}
-
-
 
 	.background-botao {
 		background-color: dodgerblue;
@@ -36,7 +32,6 @@
 </style>
 
 <body>
-
 	<div class="container" id="div1">
 		<div th:replace="fragments :: menu"></div>
 	</div>
@@ -57,19 +52,14 @@
 				<button class="btn btn-outline-success my-2 my-sm-0">Pesquisar</button>
 			</form>
 		</nav>
-
-
-
 		<div align=" right" class="container w-100">
 			<a class="btn background-botao btn-md btn-outline-primary" href="/produto/exportarCsv" role="button"> <span
-					class="oi oi-plus" title="relatorio" aria-hidden="true"></span> <span class="cor-text">Gerar
-					Relat�rio</span>
+					class="oi oi-plus" title="relatorio" aria-hidden="true"></span> <span class="cor-text">Gerar Relatório</span>
 			</a>
 			<a class="btn btn-primary btn-md" href="/cadastro/produto" role="button"> <span class="oi oi-plus"
 					title="Cadastro" aria-hidden="true"></span> <span>Cadastrar Produto</span>
 			</a>
 		</div>
-
 
 		<!-- align="center" -->
 		<div class="container  p-3" style="text-align: right;">
@@ -83,7 +73,7 @@
 							<th>Categoria</th>
 							<th>Quantidade</th>
 							<th>Estoque</th>
-							<th style="width: 20%;">A��es</th>
+							<th style="width: 20%;">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -101,22 +91,14 @@
 									th:href="@{/cadastro/produto/remover/{id}(id=${produto.id})}"
 									th:attr="data-target='#modal-warning'+${produto.id }">Remover<span
 										class="oi oi-circle-x" title="Remover" aria-hidden="true"></span></a>
-
 							</td>
-
-
 						</tr>
 					</tbody>
 				</table>
 			</div>
-
-
-
 			<div class="fixed-bottom">
 				<div th:replace="fragments :: footer"></div>
 			</div>
 		</div>
-
 </body>
-
 </html>

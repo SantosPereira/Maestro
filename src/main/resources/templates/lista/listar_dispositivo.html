@@ -14,12 +14,8 @@
 	}
 
 	#div2 {
-
 		float: center;
-
-
 	}
-
 
 	.background-botao {
 		background-color: dodgerblue;
@@ -37,12 +33,9 @@
 </style>
 
 <body>
-
 	<div class="container" id="div1">
 		<div th:replace="fragments :: menu"></div>
 	</div>
-
-
 	<div class="container  fixed" id="div2">
 		<nav class="navbar navbar-expand-md ">
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -56,30 +49,19 @@
 					aria-hidden="true"></span> <span>Cadastrar Dispositivo</span>
 				</a> -->
 			</div>
-
-
 			<form class="form-inline w-15 p-2" method="POST" action="buscarPorNomeDispositivo">
 				<input class="form-control mr-sm-2" type="search" placeholder="nome" name="nome" />
 				<button class="btn btn-outline-success my-2 my-sm-0">Pesquisar</button>
 			</form>
 		</nav>
 
-
-
-
-
-
-
 		<div align=" right" class="container">
 			<a class="btn background-botao btn-md btn-outline-primary" href="/dispositivos/exportarCsv" role="button">
-				<span class="oi oi-plus" title="relatorio" aria-hidden="true"></span> <span class="cor-text">Gerar
-					Relat�rio</span>
+				<span class="oi oi-plus" title="relatorio" aria-hidden="true"></span> <span class="cor-text">Gerar Relatório</span>
 			</a>
 			<a class="btn btn-primary btn-md" href="/cadastro/dispositivos" role="button"> <span class="oi oi-plus"
 					title="Dispositivo" aria-hidden="true"></span> <span>Cadastrar Dispositivo</span>
 			</a>
-
-
 
 			<div class="container fixed p-3">
 				<div class="table-responsive">
@@ -89,7 +71,7 @@
 								<th>Nome</th>
 								<th>IMEI</th>
 								<th>Modelo</th>
-								<th style="width: 20%;">A��es</th>
+								<th style="width: 20%;">Ações</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -101,32 +83,19 @@
 								<td colspan="2"><a class="btn btn-primary material-icons "
 										th:href="@{/cadastro/dispositivos/editar/{id}(id=${dispositivo.id})}"
 										role="button">Editar<span class="oi oi-brush" aria-hidden="true"></span></a>
-
-
-
 									<a class="btn btn-primary material-icons" data-toggle="modal"
 										data-target="#modal-warning"
 										th:href="@{/cadastro/dispositivos/remover/{id}(id=${dispositivo.id})}"
 										th:attr="data-target='#modal-warning'+${dispositivo.id}">Remover<span
 											class="oi oi-circle-x" aria-hidden="true"></span></a>
-
-
-
-
 								</td>
-
-
 							</tr>
 						</tbody>
 					</table>
 				</div>
-
-
 				<div class="fixed-bottom">
 					<div th:replace="fragments :: footer"></div>
 				</div>
 			</div>
-
 </body>
-
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
-
 <head th:replace="fragments :: head_pagina">
 	<meta charset="utf-8" />
 </head>
@@ -23,13 +22,8 @@
 	<div class="container" id="div1">
 		<div th:replace="fragments :: menu"></div>
 	</div>
-
-
-
 	<div class="container" align="center" id="div2">
-
 		<h1>Cadastrar Produto</h1>
-
 		<form class="w-25" align="center" th:object="${produtos}" method="post" th:action="@{/cadastro/produto/salvar}">
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Nome do Produto</label> <input name="nome" th:field="*{nome}"
@@ -59,14 +53,9 @@
 			<a type="button" class="btn btn-primary" th:href="@{/cadastro/produto/listar}">Voltar</a>
 		</form>
 
-
-
-
-
 		<div class="fixed-bottom">
 			<div th:replace="fragments :: footer"></div>
 		</div>
 	</div>
 </body>
-
 </html>

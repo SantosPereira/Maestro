@@ -1,4 +1,4 @@
-![](.md_resources/Maestro-transparente.png)
+![](.md_resources/Maestro.png)
 
 Maestro é um sistema ERP desenvolvido durante a cadeira de Projeto e Prática I na faculdade.
 

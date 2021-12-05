@@ -26,27 +26,20 @@
 
 
 	<div align="center" class="container" id="div2">
-		<h1>Usu�rio Cadastrado Com Sucesso</h1>
+		<h1>Usuário Cadastrado Com Sucesso</h1>
 		<span>Nome: </span><span th:text="${usuario.nome}"></span><br />
 		<span>Email: </span><span th:text="${usuario.email}"></span><br />
-		<span>Nome do Usu�rio: </span><span th:text="${usuario.nomeUsuario}"></span><br />
+		<span>Nome do Usuário: </span><span th:text="${usuario.nomeUsuario}"></span><br />
 		<span>Filial: </span><span th:text="${usuario.filial}"></span><br />
 		<span>Setor: </span><span th:text="${usuario.setor}"></span><br />
-		<span>Fun��o: </span><span th:text="${usuario.funcao}"></span><br />
+		<span>Função: </span><span th:text="${usuario.funcao}"></span><br />
 
-		<a type="button" class="btn btn-primary" href="/cadastro/usuarios/listar">Voltar Para a Lista de Usu�rios</a>
+		<a type="button" class="btn btn-primary" href="/cadastro/usuarios/listar">Voltar Para a Lista de Usuários</a>
 	</div>
-
-
-
-
 
 	<div class="fixed-bottom">
 		<div th:replace="fragments :: footer"></div>
 	</div>
 
-
-
 </body>
-
 </html>
