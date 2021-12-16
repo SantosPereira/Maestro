@@ -1,4 +1,4 @@
-package com.springboot.application.Controller;
+package com.springboot.application.controller;
 
 import java.util.Arrays;
 import java.util.List;

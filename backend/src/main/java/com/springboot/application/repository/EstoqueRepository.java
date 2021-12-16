@@ -1,4 +1,5 @@
-package com.springboot.application.Repository;
+package com.springboot.application.repository;
+
 
 import java.util.List;
 

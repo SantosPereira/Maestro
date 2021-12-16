@@ -1,4 +1,4 @@
-package com.springboot.application.Controller;
+package com.springboot.application.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;

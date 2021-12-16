@@ -1,4 +1,4 @@
-package com.springboot.application.Utils.Pdf;
+package com.springboot.application.Utils.pdf;
 
 import java.io.File;
 import java.io.FileOutputStream;
