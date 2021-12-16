@@ -1,4 +1,4 @@
-package com.springboot.application.Controller;
+package com.springboot.application.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,12 +25,12 @@ import com.google.gson.GsonBuilder;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.springboot.application.Model.Estoque;
-import com.springboot.application.Model.Produto;
-import com.springboot.application.Model.Usuario;
-import com.springboot.application.Repository.EstoqueRepository;
-import com.springboot.application.Repository.ProdutoRepository;
-import com.springboot.application.Service.ProdutoService;
+import com.springboot.application.service.ProdutoService;
+import com.springboot.application.model.Estoque;
+import com.springboot.application.model.Produto;
+import com.springboot.application.model.Usuario;
+import com.springboot.application.repository.EstoqueRepository;
+import com.springboot.application.repository.ProdutoRepository;
 
 @Controller
 public class ProdutoController {

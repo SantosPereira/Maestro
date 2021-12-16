@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend/
+    command: java -jar ./target/ProjetoBasico-0.0.1-SNAPSHOT.jar
+    volumes:
+      - ./backend:/prod/backend/
+
+  frontend:
+    build: ./frontend/
+    # command: nginx run
+    volumes:
+      - ./frontend:/var/www/

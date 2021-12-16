@@ -1,13 +1,13 @@
-package com.springboot.application.Repository;
+package com.springboot.application.repository;
 
 import java.util.List;
-
-import com.springboot.application.Model.Usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.springboot.application.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {

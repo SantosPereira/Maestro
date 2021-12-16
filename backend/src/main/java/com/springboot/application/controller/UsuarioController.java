@@ -1,4 +1,4 @@
-package com.springboot.application.Controller;
+package com.springboot.application.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,13 +27,13 @@ import com.google.gson.GsonBuilder;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.springboot.application.Model.Usuario;
-import com.springboot.application.Repository.DispositivoRepository;
-import com.springboot.application.Repository.EstoqueRepository;
-import com.springboot.application.Repository.ProdutoRepository;
-import com.springboot.application.Repository.UsuarioRepository;
-import com.springboot.application.Service.ServicoGeral;
-import com.springboot.application.Service.UsuarioService;
+import com.springboot.application.service.ServicoGeral;
+import com.springboot.application.service.UsuarioService;
+import com.springboot.application.model.Usuario;
+import com.springboot.application.repository.DispositivoRepository;
+import com.springboot.application.repository.EstoqueRepository;
+import com.springboot.application.repository.ProdutoRepository;
+import com.springboot.application.repository.UsuarioRepository;
 
 @Controller
 public class UsuarioController {

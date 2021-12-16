@@ -1,9 +1,9 @@
-package com.springboot.application.Service;
-
-import com.springboot.application.Model.Usuario;
+package com.springboot.application.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.springboot.application.model.Usuario;
 
 @Service
 public class ServicoGeral {

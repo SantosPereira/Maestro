@@ -1,10 +1,10 @@
-package com.springboot.application.Service;
+package com.springboot.application.service;
 
 import java.util.List;
 
-import com.springboot.application.Model.Estoque;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.springboot.application.model.Estoque;
 
 public interface EstoqueService extends JpaRepository<Estoque, Long> {
 

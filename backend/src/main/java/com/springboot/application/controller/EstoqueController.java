@@ -1,4 +1,4 @@
-package com.springboot.application.Controller;
+package com.springboot.application.controller;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,12 +31,12 @@ import com.lowagie.text.DocumentException;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.springboot.application.Model.Estoque;
-import com.springboot.application.Model.Produto;
-import com.springboot.application.Repository.EstoqueRepository;
-import com.springboot.application.Repository.ProdutoRepository;
-import com.springboot.application.Service.EstoqueService;
+import com.springboot.application.service.EstoqueService;
 import com.springboot.application.Utils.Pdf.EstoquePdfGerar;
+import com.springboot.application.model.Estoque;
+import com.springboot.application.model.Produto;
+import com.springboot.application.repository.EstoqueRepository;
+import com.springboot.application.repository.ProdutoRepository;
 
 @Controller
 public class EstoqueController {

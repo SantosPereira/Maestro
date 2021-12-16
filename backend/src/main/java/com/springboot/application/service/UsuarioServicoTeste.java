@@ -1,10 +1,10 @@
-package com.springboot.application.Service;
+package com.springboot.application.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springboot.application.Model.Usuario;
-import com.springboot.application.Repository.UsuarioRepository;
+import com.springboot.application.model.Usuario;
+import com.springboot.application.repository.UsuarioRepository;
 
 @Service
 public class UsuarioServicoTeste {

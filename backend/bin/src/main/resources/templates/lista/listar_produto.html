@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head_pagina">
-	
-
+	<meta charset="utf-8" />
 </head>
 <style>
-	#div1{
+	#div1 {
 		display: inline-block;
 		float: left;
 		margin-left: -20px;
 	}
 
-	#div2{
-		
-		float: center ;
-		
+	#div2 {
+
+		float: center;
+
 	}
 
+	.background-botao {
+		background-color: dodgerblue;
+		border-radius: 2px;
+		border-color: black;
+	}
 
-
-	.background-botao{
-			background-color:dodgerblue ;
-			border-radius: 2px;
-			border-color: black;
-		}
-	.cor-text{
+	.cor-text {
 		color: white;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: large;
@@ -33,18 +30,19 @@
 		font-style: italic;
 	}
 </style>
-<body>
 
+<body>
 	<div class="container" id="div1">
 		<div th:replace="fragments :: menu"></div>
 	</div>
 
-	<div class="container fixed " id="div2">
+	<div class="container fixed" id="div2">
 		<nav class="navbar navbar-expand-md ">
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><i class="oi oi-caret-right"></i>
-						<span>Lista de Produtos</span></li>
+						<span>Lista de Produtos</span>
+					</li>
 				</ul>
 
 			</div>
@@ -54,64 +52,53 @@
 				<button class="btn btn-outline-success my-2 my-sm-0">Pesquisar</button>
 			</form>
 		</nav>
-	
-
-
 		<div align=" right" class="container w-100">
-			<a class="btn background-botao btn-md btn-outline-primary" href="/produto/exportarCsv" role="button"> <span class="oi oi-plus"
-					title="relatorio" aria-hidden="true"></span> <span class="cor-text">Gerar Relatorio</span>
+			<a class="btn background-botao btn-md btn-outline-primary" href="/produto/exportarCsv" role="button"> <span
+					class="oi oi-plus" title="relatorio" aria-hidden="true"></span> <span class="cor-text">Gerar Relatório</span>
 			</a>
 			<a class="btn btn-primary btn-md" href="/cadastro/produto" role="button"> <span class="oi oi-plus"
 					title="Cadastro" aria-hidden="true"></span> <span>Cadastrar Produto</span>
 			</a>
 		</div>
 
-
 		<!-- align="center" -->
-		<div  class="container  p-3" style="text-align: right;" >
-		<!-- table-responsive aqui deixa a tabela responsiva-> -->
-		<div class="table-responsive"  style="text-align: center;">
-		
-		<table class="table table-striped table-bordered " >
-			<thead >
-				<tr>
-					<th>Nome</th>
-					<th>Categoria</th>
-					<th>Quantidade</th>
-					<th>Estoque</th>
-					<th style="width: 20%;">Acoes</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="produto : ${listaProdutos}">
-					<td th:text="${produto.nome}"></td>
-					<td th:text="${produto.categoria}"></td>
-					<td th:text="${produto.quantidade}"></td>
-					<td th:text="${produto.estoque}"></td>
+		<div class="container  p-3" style="text-align: right;">
+			<!-- table-responsive aqui deixa a tabela responsiva-> -->
+			<div class="table-responsive" style="text-align: center;">
 
-					<td colspan="2"  ><a class="btn btn-primary material-icons"
-							th:href="@{/cadastro/produto/editar/{id}(id=${produto.id})}" role="button">Editar<span
-								class="oi oi-brush" title="Editar" aria-hidden="true"></span></a> <a
-							class="btn btn-primary material-icons" data-toggle="modal" data-target="#modal-warning"
-							th:href="@{/cadastro/produto/remover/{id}(id=${produto.id})}"
-							th:attr="data-target='#modal-warning'+${produto.id }">Remover<span class="oi oi-circle-x"
-								title="Remover" aria-hidden="true"></span></a>
+				<table class="table table-striped table-bordered ">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Categoria</th>
+							<th>Quantidade</th>
+							<th>Estoque</th>
+							<th style="width: 20%;">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="produto : ${listaProdutos}">
+							<td th:text="${produto.nome}"></td>
+							<td th:text="${produto.categoria}"></td>
+							<td th:text="${produto.quantidade}"></td>
+							<td th:text="${produto.estoque}"></td>
 
-					</td>
-
-
-				</tr>
-			</tbody>
-		</table>
+							<td colspan="2"><a class="btn btn-primary material-icons"
+									th:href="@{/cadastro/produto/editar/{id}(id=${produto.id})}"
+									role="button">Editar<span class="oi oi-brush" title="Editar"
+										aria-hidden="true"></span></a> <a class="btn btn-primary material-icons"
+									data-toggle="modal" data-target="#modal-warning"
+									th:href="@{/cadastro/produto/remover/{id}(id=${produto.id})}"
+									th:attr="data-target='#modal-warning'+${produto.id }">Remover<span
+										class="oi oi-circle-x" title="Remover" aria-hidden="true"></span></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="fixed-bottom">
+				<div th:replace="fragments :: footer"></div>
+			</div>
 		</div>
-	
-
-
-		<div class="fixed-bottom">
-			<div th:replace="fragments :: footer"></div>
-		</div>
-	</div>
-
 </body>
-
 </html>
