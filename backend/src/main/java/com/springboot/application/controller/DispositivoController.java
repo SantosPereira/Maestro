@@ -1,32 +1,23 @@
 package com.springboot.application.controller;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.opencsv.CSVWriter;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import org.springframework.web.bind.annotation.RestController;
 import com.springboot.application.model.Dispositivo;
-import com.springboot.application.model.Estoque;
-import com.springboot.application.model.Produto;
 import com.springboot.application.repository.DispositivoRepository;
 
-@Controller
+@RestController
+@RequestMapping("/dispositivo")
+// @Controller
 public class DispositivoController {
 
 	@Autowired
@@ -37,74 +28,72 @@ public class DispositivoController {
 		this.dispositivoRepository = dispositivoRepository;
 	}
 
-	@GetMapping("/cadastro/dispositivos")
-	public ModelAndView retornaCadastroDispositivo(Dispositivo dispositivo) {
-		ModelAndView mv = new ModelAndView("cadastro/cadastro_dispositivo");
-		mv.addObject("dispositivos", dispositivo);
+	// :::::::::::::::::::::::::::::::::: CRUD ::::::::::::::::::::::::::::::::::::
 
-		List<String> modelos = Arrays.asList("Selecione..", "Motorola", "Samsung");
-		mv.addObject("listaModelos", modelos);
-
-		return mv;
+	// ::::: CREATE
+	@PostMapping("/cadastrar")
+	public Map<String, String> cadastrar(Dispositivo dispositivo) {
+		dispositivoRepository.save(dispositivo);
+		Map<String, String> json = new HashMap<>();
+		json.put("Resposta","Cadastro concluído!");
+		return json;
 	}
 
-	@GetMapping("/cadastro/dispositivos/listar")
-	public ModelAndView listarDispositivo() {
-		ModelAndView mv = new ModelAndView("lista/listar_dispositivo");
-		mv.addObject("listaDispositivos", dispositivoRepository.findAll());
-		return mv;
+	// ::::: READ
+	@GetMapping("/listar")
+	public List<Dispositivo> listarTodos(Dispositivo dispositivo) {
+		return dispositivoRepository.findAll();
+	}
+	public Optional<Dispositivo> listar(Dispositivo dispositivo) {
+		return dispositivoRepository.findById(dispositivo.getId());
 	}
 
-	@GetMapping("/cadastro/dispositivos/editar/{id}")
-	public ModelAndView editarDispositivo(@PathVariable("id") Long id) {
+	// ::::: UPDATE
+	@GetMapping("/editar/{id}")
+	public Optional<Dispositivo> editardispositivoLer(@PathVariable("id") Long id) {
 		Optional<Dispositivo> dispositivo = dispositivoRepository.findById(id);
-		return retornaCadastroDispositivo(dispositivo.get());
+		return listar(dispositivo.get());
+	}
+	@PostMapping("/editar/{id}")
+	public Optional<Dispositivo> editardispositivoEscrever(@PathVariable("id") Long id, Dispositivo dispositivo) {
+		cadastrar(dispositivo);
+		return listar(dispositivo);
 	}
 
-	@GetMapping("/cadastro/dispositivos/remover/{id}")
-	public ModelAndView remover(@PathVariable("id") Long id) {
+	// ::::: DELETE
+	@GetMapping("/remover/{id}")
+	public Map<String, String> remover(@PathVariable("id") Long id) {
 		Optional<Dispositivo> dispositivo = dispositivoRepository.findById(id);
 		dispositivoRepository.delete(dispositivo.get());
-		return listarDispositivo();
+		Map<String, String> json = new HashMap<>();
+		json.put("Resposta", "Registro apagado!");
+		return json;
+	}
+	// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	
+	@PostMapping("**/buscarPorNome") // aqui faz a busca pelo nome
+	public List<Dispositivo> buscarPorNome(@RequestParam("nome") String nome) {
+		return dispositivoRepository.buscarPorNome(nome);
 	}
 
-	@PostMapping("/cadastro/dispositivos/salvar")
-	public ModelAndView salvarDispositivo(@Valid Dispositivo dispositivo, BindingResult result) {
-		if (result.hasErrors()) {
-			return retornaCadastroDispositivo(dispositivo);
-		}
+	// @GetMapping("/dispositivos/exportarCsv")
+	// public void exportCSV(HttpServletResponse response) throws Exception {
 
-		dispositivoRepository.saveAndFlush(dispositivo);
+	// 	// set file name and content type
+	// 	String filename = "dispositivo.csv";
 
-		return retornaCadastroDispositivo(new Dispositivo());
-	}
+	// 	response.setContentType("text/csv");
+	// 	response.setHeader(HttpHeaders.CONTENT_DISPOSITION,
+	// 			"attachment; filename=\"" + filename + "\"");
 
-	@PostMapping("**/buscarPorNomeDispositivo") // aqui faz a busca pelo nome
-	public ModelAndView buscarPorNomeDispositivo(@RequestParam("nome") String nome) {
-		ModelAndView mv = new ModelAndView("listar_dispositivo");
-		mv.addObject("listaDispositivos", dispositivoRepository.buscarPorNome(nome));
-		mv.addObject("dispositivoObjeto", new Dispositivo());
-		return mv;
-	}
+	// 	// create a csv writer
+	// 	StatefulBeanToCsv<Dispositivo> writer = new StatefulBeanToCsvBuilder<Dispositivo>(response.getWriter())
+	// 			.withQuotechar(CSVWriter.NO_QUOTE_CHARACTER).withSeparator(CSVWriter.DEFAULT_SEPARATOR)
+	// 			.withOrderedResults(false).build();
 
-	@GetMapping("/dispositivos/exportarCsv")
-	public void exportCSV(HttpServletResponse response) throws Exception {
+	// 	// write all employees to csv file
+	// 	writer.write(dispositivoRepository.findAll());
 
-		// set file name and content type
-		String filename = "dispositivo.csv";
-
-		response.setContentType("text/csv");
-		response.setHeader(HttpHeaders.CONTENT_DISPOSITION,
-				"attachment; filename=\"" + filename + "\"");
-
-		// create a csv writer
-		StatefulBeanToCsv<Dispositivo> writer = new StatefulBeanToCsvBuilder<Dispositivo>(response.getWriter())
-				.withQuotechar(CSVWriter.NO_QUOTE_CHARACTER).withSeparator(CSVWriter.DEFAULT_SEPARATOR)
-				.withOrderedResults(false).build();
-
-		// write all employees to csv file
-		writer.write(dispositivoRepository.findAll());
-
-	}
+	// }
 
 }
