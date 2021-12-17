@@ -1,5 +1,7 @@
 package com.springboot.application.service;
 
+import com.springboot.application.model.Usuario;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

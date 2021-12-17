@@ -9,9 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.springboot.application.service.EstoqueService;
 import com.springboot.application.model.Estoque;
 import com.springboot.application.repository.EstoqueRepository;
+import com.springboot.application.service.EstoqueService;
 
 @Service
 public class EstoqueServiceImpl implements EstoqueService{

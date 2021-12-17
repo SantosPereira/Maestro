@@ -9,9 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.springboot.application.service.UsuarioService;
 import com.springboot.application.model.Usuario;
 import com.springboot.application.repository.UsuarioRepository;
+import com.springboot.application.service.UsuarioService;
 
 @Service
 public class UsuarioServiceImpl  implements UsuarioService{

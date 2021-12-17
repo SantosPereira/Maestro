@@ -2,6 +2,8 @@ package com.springboot.application.service;
 
 import java.util.List;
 
+import com.springboot.application.model.Produto;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.springboot.application.model.Produto;

@@ -9,9 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.springboot.application.service.ProdutoService;
 import com.springboot.application.model.Produto;
 import com.springboot.application.repository.ProdutoRepository;
+import com.springboot.application.service.ProdutoService;
 
 
 @Service
