@@ -15,7 +15,7 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.lowagie.text.DocumentException;
-import com.springboot.application.Repository.EstoqueRepository;
+import com.springboot.application.repository.EstoqueRepository;
 
 @Service
 public class EstoquePdfGerar {

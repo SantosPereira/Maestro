@@ -3,8 +3,8 @@ package com.springboot.application.repository;
 
 import java.util.List;
 
-import com.springboot.application.Model.Estoque;
-import com.springboot.application.Model.Produto;
+import com.springboot.application.model.Estoque;
+import com.springboot.application.model.Produto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

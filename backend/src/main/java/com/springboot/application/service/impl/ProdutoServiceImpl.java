@@ -1,4 +1,4 @@
-package com.springboot.application.Service.impl;
+package com.springboot.application.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,9 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.springboot.application.Model.Produto;
-import com.springboot.application.Repository.ProdutoRepository;
-import com.springboot.application.Service.ProdutoService;
+import com.springboot.application.model.Produto;
+import com.springboot.application.repository.ProdutoRepository;
+import com.springboot.application.service.ProdutoService;
 
 
 @Service

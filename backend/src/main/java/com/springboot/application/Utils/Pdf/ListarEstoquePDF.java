@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.document.AbstractPdfView;
 import com.lowagie.text.Document;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.springboot.application.Model.Estoque;
+import com.springboot.application.model.Estoque;
 
 ///aqui falta implementar
 @Component("/cadastro/estoque/listar")

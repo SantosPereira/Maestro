@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -27,15 +28,17 @@ import com.google.gson.GsonBuilder;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.springboot.application.Model.Usuario;
-import com.springboot.application.Repository.DispositivoRepository;
-import com.springboot.application.Repository.EstoqueRepository;
-import com.springboot.application.Repository.ProdutoRepository;
-import com.springboot.application.Repository.UsuarioRepository;
-import com.springboot.application.Service.ServicoGeral;
-import com.springboot.application.Service.UsuarioService;
+import com.springboot.application.model.Usuario;
+import com.springboot.application.repository.DispositivoRepository;
+import com.springboot.application.repository.EstoqueRepository;
+import com.springboot.application.repository.ProdutoRepository;
+import com.springboot.application.repository.UsuarioRepository;
+import com.springboot.application.service.ServicoGeral;
+import com.springboot.application.service.UsuarioService;
 
-@Controller
+@RestController
+@RequestMapping("/usuario")
+// @Controller
 public class UsuarioController {
 
 	@Autowired
@@ -61,8 +64,11 @@ public class UsuarioController {
 		this.usuarioService = usuarioService;
 	}
 
-	@GetMapping("/cadastro/usuarios")
-	public ModelAndView retornaCadastroUsuario(Usuario usuario) {
+	// CRUD
+
+	// CREATE
+	@PostMapping("/cadastrar")
+	public void cadastrar(Usuario usuario) {
 
 		// Usuario usuario = new Usuario();
 		ModelAndView mv = new ModelAndView("cadastro/cadastro_usuario");
@@ -76,57 +82,42 @@ public class UsuarioController {
 
 		// usuarioRepository.save(usuario);
 
-		return mv;
 
 	}
 
-	// @PostMapping("/cadastro/usuarios")
-	// public String cadastroDeUsuario(@ModelAttribute("usuarios") Usuario usuario)
-	// {
-	// usuarioService.salvarUsuario(usuario);
-	// return "usuario_cadastrado_com_sucesso";
-	// }
-
-	@GetMapping("/cadastro/usuarios/listar")
-	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("lista/listar_usuario");
-		mv.addObject("listaUsuarios", usuarioRepository.findAll());
-		return mv;
+	// READ
+	@GetMapping("/listar")
+	public List<Usuario> listar() {
+		return usuarioRepository.findAll();
 	}
 
-	@GetMapping("/cadastro/usuarios/editar/{id}")
-	public ModelAndView editarUsuario(@PathVariable("id") Long id) {
+	// UPDATE
+	@GetMapping("/editar/{id}")
+	public void editarUsuarioLer(@PathVariable("id") Long id) {
 		Optional<Usuario> usuario = usuarioRepository.findById(id);
-		return retornaCadastroUsuario(usuario.get());
+		// return listar(usuario.get());
+	}
+	@PostMapping("/editar/{id}")
+	public void editarUsuarioEscrever(@PathVariable("id") Long id) {
+		Optional<Usuario> usuario = usuarioRepository.findById(id);
+		// return listar(usuario.get());
 	}
 
-	@GetMapping("/cadastro/usuarios/remover/{id}")
-	public ModelAndView remover(@PathVariable("id") Long id) {
+	// DELETE
+	@GetMapping("/remover/{id}")
+	public List<Usuario> remover(@PathVariable("id") Long id) {
 		Optional<Usuario> usuario = usuarioRepository.findById(id);
 		usuarioRepository.delete(usuario.get());
 		return listar();
 	}
 
-	// @PostMapping("/cadastro/usuarios/salvar")
-	// public ModelAndView salvarUsuario(@Valid Usuario usuario, BindingResult
-	// result) {
-	// ModelAndView mv = new ModelAndView("usuario_cadastrado_com_sucesso");
-	// if(result.hasErrors()) {
-	// return retornaCadastroUsuario(usuario);
-	// }
-	//
-	// usuarioRepository.saveAndFlush(usuario);
-	// mv.addObject(usuario);
-	// return mv;
-	// }
-
-	@PostMapping("/cadastro/usuarios/salvar")
-	public ModelAndView salvarUsuario(@Valid Usuario usuario, BindingResult result,
+	@PostMapping("/salvar")
+	public void salvarUsuario(@Valid Usuario usuario, BindingResult result,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		if (result.hasErrors()) {
 			redirectAttributes.addFlashAttribute("mensagem", "deu merda a parada");
-			return retornaCadastroUsuario(usuario);
+			// return cadastrar(usuario);
 
 		}
 		try {
@@ -144,7 +135,7 @@ public class UsuarioController {
 		}
 
 		// usuarioRepository.save(usuario);
-		return retornaCadastroUsuario(new Usuario());
+		// return cadastrar(new Usuario());
 	}
 
 	@PostMapping("**/buscarPorNome") // aqui faz a busca pelo nome
@@ -155,7 +146,7 @@ public class UsuarioController {
 		return mv;
 	}
 
-	@GetMapping("/usuarios/exportarCsv")
+	@GetMapping("/exportarCsv")
 	public void exportCSV(HttpServletResponse response) throws Exception {
 
 		// set file name and content type
@@ -196,3 +187,23 @@ public class UsuarioController {
 		return gson.toJson(QuantidadeDosObjetos);
 	}
 }
+
+// @PostMapping("/cadastro/usuarios")
+// public String cadastroDeUsuario(@ModelAttribute("usuarios") Usuario usuario)
+// {
+// usuarioService.salvarUsuario(usuario);
+// return "usuario_cadastrado_com_sucesso";
+// }
+
+// @PostMapping("/cadastro/usuarios/salvar")
+// public ModelAndView salvarUsuario(@Valid Usuario usuario, BindingResult
+// result) {
+// ModelAndView mv = new ModelAndView("usuario_cadastrado_com_sucesso");
+// if(result.hasErrors()) {
+// return cadastrar(usuario);
+// }
+//
+// usuarioRepository.saveAndFlush(usuario);
+// mv.addObject(usuario);
+// return mv;
+// }

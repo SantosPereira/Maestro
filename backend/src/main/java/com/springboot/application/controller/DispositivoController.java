@@ -21,10 +21,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.springboot.application.Model.Dispositivo;
-import com.springboot.application.Model.Estoque;
-import com.springboot.application.Model.Produto;
-import com.springboot.application.Repository.DispositivoRepository;
+import com.springboot.application.model.Dispositivo;
+import com.springboot.application.model.Estoque;
+import com.springboot.application.model.Produto;
+import com.springboot.application.repository.DispositivoRepository;
 
 @Controller
 public class DispositivoController {
