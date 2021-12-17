@@ -8,6 +8,5 @@ services:
 
   frontend:
     build: ./frontend/
-    # command: nginx run
     volumes:
       - ./frontend:/var/www/

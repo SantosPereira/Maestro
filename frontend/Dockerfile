@@ -14,4 +14,4 @@ RUN chown -R $USER:$USER /var/www/maestroerp/html
 RUN cd ../../prod/frontend/
 RUN npm install
 RUN npm run build
-RUN mv ./dist/ ../../var/www/maestroerp/html
+RUN mv ./dist/* ../../var/www/maestroerp/html
