@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head_pagina">
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<div class="container">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+	<div align="center" class="container">
+		<h1>Produto Cadastrado Com Sucesso</h1>
+		<span>Nome: </span><span th:text="${produtos.nome}"></span><br />
+		<span>Categoria: </span><span th:text="${produtos.categoria}"></span><br />
+		<span>Quantidade: </span><span th:text="${produtos.quantidade}"></span><br />
+		<span>Estoque: </span><span th:text="${produtos.estoque}"></span><br />
+
+
+		<a th:href="@{/}">Clique para retornar a página principal</a>
+	</div>
+
+
+
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+</body>
+
+</html>
