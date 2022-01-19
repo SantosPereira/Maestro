@@ -1,15 +1,20 @@
 <template>
   <div class="login">
-    <section></section>
     <section id="form-login">
-      <form action="localhost:8080/usuario/autenticacao" method="POST">
-        <label>Usuário</label>
-        <input type="text"/>
+      <form action="/usuario/autenticacao" method="POST">
+      <h2>Login</h2>
+        <div>
+          <label>Usuário</label>
+          <input type="text"/>
+        </div>
 
-        <label>Senha</label>
-        <input type="password"/>
+        <div>
+          <label>Senha</label>
+          <input type="password"/>
+        </div>
 
-        <input type="submit"/>
+        <!-- <input type="submit"/> -->
+        <router-link to="/app">Enviar</router-link>
       </form>
     </section>
   </div>
@@ -20,11 +25,12 @@
 
 <script>
 // @ is an alias to /src
-// import Menu from "@/components/Menu.vue";
+// import SPA from "@/components/SPA.vue";
 
 export default {
   name: "Login",
-  components: {},
+  components: {
+  },
 };
 </script>
 
@@ -47,6 +53,7 @@ form div {
   align-content: flex-start;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 
 
