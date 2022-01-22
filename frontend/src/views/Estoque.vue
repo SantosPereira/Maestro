@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>dvga</div>
 </template>
 
 <script>

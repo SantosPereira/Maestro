@@ -35,6 +35,11 @@ export default {
 </script>
 
 <style scoped>
+.login {
+  display: flex;
+  justify-content: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -50,9 +55,7 @@ form div {
   display: flex;
   flex-direction: column;
 
-  align-content: flex-start;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-content: center;
   margin-bottom: 1rem;
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>gbff</div>
 </template>
 
 <script>
