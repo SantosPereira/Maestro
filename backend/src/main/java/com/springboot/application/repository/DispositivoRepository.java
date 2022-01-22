@@ -3,12 +3,15 @@ package com.springboot.application.repository;
 
 import java.util.List;
 
-import com.springboot.application.Model.Dispositivo;
-import com.springboot.application.Model.Produto;
+import com.springboot.application.model.Dispositivo;
+import com.springboot.application.model.Produto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import com.springboot.application.model.Dispositivo;
+import com.springboot.application.model.Produto;
 
 @Repository
 public interface DispositivoRepository extends JpaRepository<Dispositivo, Long> {

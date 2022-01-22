@@ -1,4 +1,4 @@
-package com.springboot.application.Service.impl;
+package com.springboot.application.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,9 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.springboot.application.Model.Usuario;
-import com.springboot.application.Repository.UsuarioRepository;
-import com.springboot.application.Service.UsuarioService;
+import com.springboot.application.model.Usuario;
+import com.springboot.application.repository.UsuarioRepository;
+import com.springboot.application.service.UsuarioService;
 
 @Service
 public class UsuarioServiceImpl  implements UsuarioService{

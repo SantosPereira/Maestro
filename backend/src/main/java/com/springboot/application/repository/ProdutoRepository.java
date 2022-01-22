@@ -3,12 +3,15 @@ package com.springboot.application.repository;
 
 import java.util.List;
 
-import com.springboot.application.Model.Produto;
-import com.springboot.application.Model.Usuario;
+import com.springboot.application.model.Produto;
+import com.springboot.application.model.Usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import com.springboot.application.model.Produto;
+import com.springboot.application.model.Usuario;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
