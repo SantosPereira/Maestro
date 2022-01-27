@@ -35,6 +35,7 @@ import com.springboot.application.model.Usuario;
 import com.springboot.application.repository.EstoqueRepository;
 import com.springboot.application.repository.ProdutoRepository;
 import com.springboot.application.service.ProdutoService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin(origins = "*")
 @RestController
