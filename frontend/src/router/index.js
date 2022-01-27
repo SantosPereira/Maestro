@@ -3,14 +3,20 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Cadastro from "../views/Cadastro.vue";
 import SPA from "../views/SPA.vue";
-import Sobre from "../views/Sobre.vue";
+import Sobre from "../views/board/Sobre.vue";
 
 import Dashboard from "../views/Dashboard.vue";
-import Usuario from "../views/Usuario.vue";
-import Estoque from "../views/Estoque.vue";
-import Produto from "../views/Produto.vue";
-import Dispositivo from "../views/Dispositivo.vue";
+import Usuario from "../views/board/Usuario.vue";
+import Estoque from "../views/board/Estoque.vue";
+import Produto from "../views/board/Produto.vue";
+import Dispositivo from "../views/board/Dispositivo.vue";
 
+import CadastroUsuario from "../views/board/telasCadastro/CadastroUsuario.vue";
+import EditarUsuario from "../views/board/telasCadastro/EditarUsuario.vue";
+// import $coisa from "../views/board/telasCadastro/$coisa.vue";
+// import $coisa from "../views/board/telasCadastro/$coisa.vue";
+// import $coisa from "../views/board/telasCadastro/$coisa.vue";
+// import $coisa from "../views/board/telasCadastro/$coisa.vue";
 
 const routes = [
   {
@@ -57,6 +63,34 @@ const routes = [
         path: "/sobre",
         component: Sobre
       },
+      {
+        path: "/usuario/cadastrar",
+        component: CadastroUsuario
+      },
+      {
+        path: "/usuario/editar/:id",
+        component: EditarUsuario,
+      },
+      // {
+      //   path: "/sobre",
+      //   component: Sobre
+      // },
+      // {
+      //   path: "/sobre",
+      //   component: Sobre
+      // },
+      // {
+      //   path: "/sobre",
+      //   component: Sobre
+      // },
+      // {
+      //   path: "/sobre",
+      //   component: Sobre
+      // },
+      // {
+      //   path: "/sobre",
+      //   component: Sobre
+      // },
     ]
   }
   // {

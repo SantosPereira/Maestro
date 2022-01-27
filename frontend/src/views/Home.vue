@@ -24,7 +24,7 @@
           </p>
         </article>
       </section>
-      <section>
+      <section id="forms">
         <div id="login" v-if="!visivel">
           <section id="form-login">
             <form action="/usuario/autenticacao" method="POST">
@@ -101,7 +101,8 @@ export default {
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-top: 2rem;
 }
 
 header div {
@@ -132,8 +133,9 @@ header div {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
+  padding: 2rem;
+  background-color: rgb(231, 105, 47);
 }
 
 /* #artigo {
@@ -158,6 +160,16 @@ form div {
   align-content: flex-start;
   align-items: center;
   /* justify-content: flex-start; */
+  margin-bottom: 1rem;
+}
+
+#forms {
+  background-color: rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+section h2 {
   margin-bottom: 1rem;
 }
 </style>

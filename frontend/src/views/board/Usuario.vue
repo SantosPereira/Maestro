@@ -7,7 +7,8 @@
         <input type="text" placeholder="Nome" />
         <input type="submit" value="Pesquisar" />
       </form>
-      <button>Cadastrar Usuário</button>
+      <router-link to="/usuario/cadastrar"><button>Usuário</button></router-link>
+      <button @click="atualizar()">Atualizar</button>
       <table>
         <tr>
           <th>Nome</th>
@@ -26,8 +27,10 @@
             <td>{{ usuario.setor }}</td>
             <td>{{ usuario.funcao }}</td>
             <td>
+              <router-link v-bind:to="'/usuario/editar/'+usuario.id">
                 <button>Editar</button>
-                <button>Remover</button>
+              </router-link>
+                <button @click="remover(usuario.id)">Remover</button>
             </td>
         </tr>
       </table>
@@ -56,6 +59,31 @@ export default {
             }
         )
     },
+  methods: {
+    editar: function(id) {
+      axios.get("http://localhost:8080/usuario/editar/"+id, cabec)
+          .then((resposta) => {
+              console.log(resposta.data);
+              }
+          )
+
+    },
+    remover: function(id) {
+      axios.get("http://localhost:8080/usuario/remover/"+id, cabec)
+          .then((resposta) => {
+              console.log(resposta.data);
+              }
+          )
+
+    },
+    atualizar: function() {
+      axios.get("http://localhost:8080/usuario/listar", cabec)
+        .then((resposta) => {
+            this.usuarios = resposta.data;
+            }
+        )
+    },
+  }
 }
 </script>
 
