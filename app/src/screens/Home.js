@@ -24,9 +24,8 @@ export default function App({navigation}) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  
-
   function loginFirebase() {
+    navigation.navigate("Dashboard");
     firebase
       .auth()
       .signInWithEmailAndPassword(email, senha)
@@ -34,21 +33,33 @@ export default function App({navigation}) {
         var errorCode = error.code;
         var errorMessage = error.message;
         // alert(errorCode, errorMessage);
-        Alert.alert("Erro no login", "Problemas ao realizar o login");
+        // Alert.alert("Erro no login", "Problemas ao realizar o login");
       });
+    // if (logado==true) {
+    //   firebase.auth().onAuthStateChanged(function (user) {
+    //     if (user) {
+    //       navigation.navigate("Dashboard");
+    //       console.log("Logado" + user.uid);
+    //     } else {
+    //       console.log("Não logado!");
+    //     }
+    //   });
+    // }
   }
+
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        navigation.navigate("Logado");
+        navigation.navigate("Dashboard");
         console.log("Logado" + user.uid);
-        console.log("Outra coisa");
       } else {
         console.log("Não logado!");
       }
+      user = false;
     });
-  });
+  }, []);
+
 
   /* function logOutFirebase(){
     firebase.auth().signOut().then(function(){
