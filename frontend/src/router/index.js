@@ -13,10 +13,12 @@ import Dispositivo from "../views/board/Dispositivo.vue";
 
 import CadastroUsuario from "../views/board/telasCadastro/CadastroUsuario.vue";
 import EditarUsuario from "../views/board/telasCadastro/EditarUsuario.vue";
-// import $coisa from "../views/board/telasCadastro/$coisa.vue";
-// import $coisa from "../views/board/telasCadastro/$coisa.vue";
-// import $coisa from "../views/board/telasCadastro/$coisa.vue";
-// import $coisa from "../views/board/telasCadastro/$coisa.vue";
+import CadastroProduto from "../views/board/telasCadastro/CadastroProduto.vue";
+import EditarProduto from "../views/board/telasCadastro/EditarProduto.vue";
+import CadastroEstoque from "../views/board/telasCadastro/CadastroEstoque.vue";
+import EditarEstoque from "../views/board/telasCadastro/EditarEstoque.vue";
+import CadastroDispositivo from "../views/board/telasCadastro/CadastroDispositivo.vue";
+import EditarDispositivo from "../views/board/telasCadastro/EditarDispositivo.vue";
 
 const routes = [
   {
@@ -71,26 +73,30 @@ const routes = [
         path: "/usuario/editar/:id",
         component: EditarUsuario,
       },
-      // {
-      //   path: "/sobre",
-      //   component: Sobre
-      // },
-      // {
-      //   path: "/sobre",
-      //   component: Sobre
-      // },
-      // {
-      //   path: "/sobre",
-      //   component: Sobre
-      // },
-      // {
-      //   path: "/sobre",
-      //   component: Sobre
-      // },
-      // {
-      //   path: "/sobre",
-      //   component: Sobre
-      // },
+      {
+        path: "/produto/cadastrar",
+        component: CadastroProduto
+      },
+      {
+        path: "/produto/editar/:id",
+        component: EditarProduto,
+      },
+      {
+        path: "/estoque/cadastrar",
+        component: CadastroEstoque
+      },
+      {
+        path: "/estoque/editar/:id",
+        component: EditarEstoque,
+      },
+      {
+        path: "/dispositivo/cadastrar",
+        component: CadastroDispositivo
+      },
+      {
+        path: "/dispositivo/editar/:id",
+        component: EditarDispositivo,
+      },
     ]
   }
   // {

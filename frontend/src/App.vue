@@ -26,7 +26,7 @@ export default {
 }
 
 a {
-  color: rgb(18, 201, 140);
+  /* color: rgb(0, 0, 0); */
   text-decoration: none;
 }
 </style>

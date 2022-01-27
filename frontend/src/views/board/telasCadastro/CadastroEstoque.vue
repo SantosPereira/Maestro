@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <h1>Cadastrar usuário</h1>
+      <h1>Cadastrar estoque</h1>
       <form>
         <div>
           <label>Nome</label>
@@ -9,35 +9,17 @@
         </div>
 
         <div>
-          <label>E-mail</label>
-          <input type="email" v-model="dados.email" />
+          <label>Tipo</label>
+          <input type="email" v-model="dados.tipo" />
         </div>
 
         <div>
-          <label>Nome de usuário</label>
-          <input type="text" v-model="dados.nomeUsuario" />
+          <label>Quantidade</label>
+          <input type="text" v-model="dados.quantidade" />
         </div>
 
-        <div>
-          <label>Filial</label>
-          <input type="text" v-model="dados.filial" />
-        </div>
-
-        <div>
-          <label>Setor</label>
-          <input type="text" v-model="dados.setor" />
-        </div>
-
-        <div>
-          <label>Função</label>
-          <select v-model="dados.funcao">
-            <option value="Gerente">Gerente</option>
-            <option value="Estoquista">Estoquista</option>
-            <option value="Caixa">Caixa</option>
-          </select>
-        </div>
         <button class="enviar" @click="cadastrar()">
-          <router-link to="/usuario">Cadastrar</router-link>
+          <router-link to="/estoque">Cadastrar</router-link>
         </button>
       </form>
     </section>
@@ -49,16 +31,13 @@ import axios from "axios";
 var cabec = new Headers();
 cabec.append("Access-Control-Allow-Origin", "*");
 export default {
-  name: "CadastroUsuario",
+  name: "CadastroEstoque",
   data: function () {
     return {
       dados: {
         nome: "",
-        email: "",
-        nomeUsuario: "",
-        filial: "",
-        setor: "",
-        funcao: "",
+        tipo: "",
+        quantidade: "",
       },
     };
   },
@@ -67,7 +46,7 @@ export default {
       var queryString = new URLSearchParams(this.dados).toString();
       axios
         .post(
-          "http://localhost:8080/usuario/cadastrar/" + "?" + queryString,
+          "http://localhost:8080/estoque/cadastrar/" + "?" + queryString,
           cabec
         )
         .then((resposta) => {

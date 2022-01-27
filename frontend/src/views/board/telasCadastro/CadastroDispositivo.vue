@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <h1>Cadastrar usuário</h1>
+      <h1>Cadastrar dispositivo</h1>
       <form>
         <div>
           <label>Nome</label>
@@ -9,35 +9,17 @@
         </div>
 
         <div>
-          <label>E-mail</label>
-          <input type="email" v-model="dados.email" />
+          <label>IMEI</label>
+          <input type="email" v-model="dados.imei" />
         </div>
 
         <div>
-          <label>Nome de usuário</label>
-          <input type="text" v-model="dados.nomeUsuario" />
+          <label>Modelo</label>
+          <input type="text" v-model="dados.modelo" />
         </div>
 
-        <div>
-          <label>Filial</label>
-          <input type="text" v-model="dados.filial" />
-        </div>
-
-        <div>
-          <label>Setor</label>
-          <input type="text" v-model="dados.setor" />
-        </div>
-
-        <div>
-          <label>Função</label>
-          <select v-model="dados.funcao">
-            <option value="Gerente">Gerente</option>
-            <option value="Estoquista">Estoquista</option>
-            <option value="Caixa">Caixa</option>
-          </select>
-        </div>
         <button class="enviar" @click="cadastrar()">
-          <router-link to="/usuario">Cadastrar</router-link>
+          <router-link to="/dispositivo">Cadastrar</router-link>
         </button>
       </form>
     </section>
@@ -54,11 +36,8 @@ export default {
     return {
       dados: {
         nome: "",
-        email: "",
-        nomeUsuario: "",
-        filial: "",
-        setor: "",
-        funcao: "",
+        imei: "",
+        modelo: "",
       },
     };
   },
@@ -67,7 +46,7 @@ export default {
       var queryString = new URLSearchParams(this.dados).toString();
       axios
         .post(
-          "http://localhost:8080/usuario/cadastrar/" + "?" + queryString,
+          "http://localhost:8080/dispositivo/cadastrar/" + "?" + queryString,
           cabec
         )
         .then((resposta) => {

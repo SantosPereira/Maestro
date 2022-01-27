@@ -1,8 +1,8 @@
 <template>
   <div>
     <section>
-      <h1>Editar usuário</h1>
-      <!-- <form :action="'http://localhost:8080/usuario/editar/'+this.$route.params.id" method="post"> -->
+      <h1>Editar produto</h1>
+      <!-- <form :action="'http://localhost:8080/produto/editar/'+this.$route.params.id" method="post"> -->
       <form name="formulario" v-bind="formulario">
         <div>
           <label>Nome</label>
@@ -10,37 +10,22 @@
         </div>
 
         <div>
-          <label>E-mail</label>
-          <input type="email" v-model="dados.email" />
+          <label>Categoria</label>
+          <input type="text" v-model="dados.categoria" />
         </div>
 
         <div>
-          <label>Nome de usuário</label>
-          <input type="text" v-model="dados.nomeUsuario" />
+          <label>Quantidade</label>
+          <input type="text" v-model="dados.quantidade" />
         </div>
 
         <div>
-          <label>Filial</label>
-          <input type="text" v-model="dados.filial" />
-        </div>
-
-        <div>
-          <label>Setor</label>
-          <input type="text" v-model="dados.setor" />
-        </div>
-
-        <div>
-          <label>Função</label>
-          <select v-model="dados.funcao">
-            <option>{{ dados.funcao }}</option>
-            <option value="Gerente">Gerente</option>
-            <option value="Estoquista">Estoquista</option>
-            <option value="Caixa">Caixa</option>
-          </select>
+          <label>Estoque</label>
+          <input type="text" v-model="dados.estoque" />
         </div>
 
         <button class="enviar" @click="editar()">
-          <router-link to="/usuario">Enviar</router-link>
+          <router-link to="/produto">Enviar</router-link>
         </button>
       </form>
     </section>
@@ -52,23 +37,21 @@ import axios from "axios";
 var cabec = new Headers();
 cabec.append("Access-Control-Allow-Origin", "*");
 export default {
-  name: "EditarUsuario",
+  name: "EditarProduto",
   data: function () {
     return {
       dados: {
         nome: '',
-        email: '',
-        nomeUsuario: '',
-        filial: '',
-        setor: '',
-        funcao: ''
+        categoria: '',
+        quantidade: '',
+        estoque: ''
       },
     };
   },
   created() {
     axios
       .get(
-        "http://localhost:8080/usuario/editar/" + this.$route.params.id,
+        "http://localhost:8080/produto/editar/" + this.$route.params.id,
         cabec
       )
       .then((resposta) => {
@@ -81,7 +64,7 @@ export default {
       var queryString = new URLSearchParams(this.dados).toString();
       axios
         .post(
-          "http://localhost:8080/usuario/editar/" +
+          "http://localhost:8080/produto/editar/" +
             this.dados.id +
             "?" +
             queryString,

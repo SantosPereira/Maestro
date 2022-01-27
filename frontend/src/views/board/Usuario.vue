@@ -2,13 +2,17 @@
   <div>
     <h1>Usuários</h1>
     <section>
-      <h3>Lista de Usuários</h3>
-      <form action="/listar" method="get">
-        <input type="text" placeholder="Nome" />
-        <input type="submit" value="Pesquisar" />
-      </form>
-      <router-link to="/usuario/cadastrar"><button>Usuário</button></router-link>
-      <button @click="atualizar()">Atualizar</button>
+      <!-- <h3>Lista de Usuários</h3> -->
+      <header>
+        <router-link to="/usuario/cadastrar"><button>Cadastrar usuário</button></router-link>
+        <div>
+          <form action="/listar" method="get">
+            <input type="text" placeholder="Nome" />
+            <input id="button" type="submit" value="Pesquisar" />
+          </form>
+          <button @click="atualizar()">Atualizar</button>
+        </div>
+      </header>
       <table>
         <tr>
           <th>Nome</th>
@@ -28,9 +32,9 @@
             <td>{{ usuario.funcao }}</td>
             <td>
               <router-link v-bind:to="'/usuario/editar/'+usuario.id">
-                <button>Editar</button>
+                <button class="editar">Editar</button>
               </router-link>
-                <button @click="remover(usuario.id)">Remover</button>
+                <button class="remover" @click="remover(usuario.id)">Remover</button>
             </td>
         </tr>
       </table>
@@ -87,4 +91,62 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+div h1 {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+header div form input {
+  margin-left: 0.6rem;
+}
+header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content:space-between;
+  width: 21rem
+}
+table {
+  color: black;
+  padding: 1px;
+  /* padding-top: 2px; */
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  /* background-color: rgba(221, 221, 221, 0.6); */
+}
+td {
+  padding: 0.5rem;
+  /* color: aliceblue; */
+  border: 1px solid rgba(163, 163, 163, 0.5);
+}
+th {
+  border-radius: 2px;
+  /* color: aliceblue; */
+  padding: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: rgb(158, 157, 157);
+}
+button, #button {
+  padding: 3px;
+}
+.editar {
+  color: white;
+  background-color: rgb(99, 202, 67);
+  border-radius: 5px;
+  border-style: none;
+}
+.remover {
+  color: white;
+  background-color: rgb(247, 52, 52);
+  border-radius: 5px;
+  border-style: none;
+}
+</style>
