@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.springboot.application.model.Dispositivo;
 import com.springboot.application.repository.DispositivoRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/dispositivo")
 // @Controller
