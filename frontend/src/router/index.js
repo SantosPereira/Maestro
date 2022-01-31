@@ -3,14 +3,22 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Cadastro from "../views/Cadastro.vue";
 import SPA from "../views/SPA.vue";
-import Sobre from "../views/Sobre.vue";
+import Sobre from "../views/board/Sobre.vue";
 
 import Dashboard from "../views/Dashboard.vue";
-import Usuario from "../views/Usuario.vue";
-import Estoque from "../views/Estoque.vue";
-import Produto from "../views/Produto.vue";
-import Dispositivo from "../views/Dispositivo.vue";
+import Usuario from "../views/board/Usuario.vue";
+import Estoque from "../views/board/Estoque.vue";
+import Produto from "../views/board/Produto.vue";
+import Dispositivo from "../views/board/Dispositivo.vue";
 
+import CadastroUsuario from "../views/board/telasCadastro/CadastroUsuario.vue";
+import EditarUsuario from "../views/board/telasCadastro/EditarUsuario.vue";
+import CadastroProduto from "../views/board/telasCadastro/CadastroProduto.vue";
+import EditarProduto from "../views/board/telasCadastro/EditarProduto.vue";
+import CadastroEstoque from "../views/board/telasCadastro/CadastroEstoque.vue";
+import EditarEstoque from "../views/board/telasCadastro/EditarEstoque.vue";
+import CadastroDispositivo from "../views/board/telasCadastro/CadastroDispositivo.vue";
+import EditarDispositivo from "../views/board/telasCadastro/EditarDispositivo.vue";
 
 const routes = [
   {
@@ -56,6 +64,38 @@ const routes = [
       {
         path: "/sobre",
         component: Sobre
+      },
+      {
+        path: "/usuario/cadastrar",
+        component: CadastroUsuario
+      },
+      {
+        path: "/usuario/editar/:id",
+        component: EditarUsuario,
+      },
+      {
+        path: "/produto/cadastrar",
+        component: CadastroProduto
+      },
+      {
+        path: "/produto/editar/:id",
+        component: EditarProduto,
+      },
+      {
+        path: "/estoque/cadastrar",
+        component: CadastroEstoque
+      },
+      {
+        path: "/estoque/editar/:id",
+        component: EditarEstoque,
+      },
+      {
+        path: "/dispositivo/cadastrar",
+        component: CadastroDispositivo
+      },
+      {
+        path: "/dispositivo/editar/:id",
+        component: EditarDispositivo,
       },
     ]
   }
