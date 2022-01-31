@@ -12,54 +12,30 @@ import {
   NativeAppEventEmitter,
   KeyboardAvoidingView,
   Alert,
-  navigation
+  navigation,
 } from "react-native";
 import firebase from "../../firebaseConfig";
 
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
-import { FazLogin } from "./FazLogin";
-
-export default function App({navigation}) {
+export default function App({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
   function loginFirebase() {
-    navigation.navigate("Dashboard");
     firebase
       .auth()
       .signInWithEmailAndPassword(email, senha)
+      .then(() => {
+        navigation.navigate("Dashboard");
+        console.log(email);
+      })
       .catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        // alert(errorCode, errorMessage);
-        // Alert.alert("Erro no login", "Problemas ao realizar o login");
+        Alert.alert("Erro no login", "Problemas ao realizar o login");
       });
-    // if (logado==true) {
-    //   firebase.auth().onAuthStateChanged(function (user) {
-    //     if (user) {
-    //       navigation.navigate("Dashboard");
-    //       console.log("Logado" + user.uid);
-    //     } else {
-    //       console.log("Não logado!");
-    //     }
-    //   });
-    // }
   }
-
-
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        navigation.navigate("Dashboard");
-        console.log("Logado" + user.uid);
-      } else {
-        console.log("Não logado!");
-      }
-      user = false;
-    });
-  }, []);
-
 
   /* function logOutFirebase(){
     firebase.auth().signOut().then(function(){
@@ -85,18 +61,8 @@ export default function App({navigation}) {
     }
   };
 
-
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-      <StatusBar hidden />
-      {/* <View>
-        <Image style={{ width: 100, height: 100, borderRadius:  50, margin: 14}}  source={{uri: 'https://th.bing.com/th/id/OIP.HAlzz7_SUXjXKwsKkyBmJQHaHa?w=197&h=197&c=7&r=0&o=5&pid=1.7'}} />
-        
-      
-      </View> */}
-
-      <StatusBar hidden />
-
       <Text
         style={{
           textAlign: "center",
@@ -138,12 +104,12 @@ export default function App({navigation}) {
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('FazLogin');
+          navigation.navigate("CadastrarUsuario");
         }}
       >
-        <Text style={{ fontSize: 12, color: "white" }}>
-          Não tem login? Tente
-          <Text style={styles.botaoCadastrar}> criar um novo usuário</Text>
+        <Text style={{ fontSize: 12, color: "white", marginLeft: 0 }}>
+          Não tem login? Tente{" "}
+          <Text style={styles.botaoCadastrar}>criar um novo usuário</Text>
         </Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
@@ -190,7 +156,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     margin: 1,
     backgroundColor: "transparent",
-    paddingLeft: 10,
+    // paddingLeft: 10,
     paddingRight: 10,
     height: 40,
     width: 235,

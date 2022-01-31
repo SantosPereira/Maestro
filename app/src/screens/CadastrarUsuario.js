@@ -1,140 +1,106 @@
-import React,  {useState} from 'react';
-import {View, TextInput , Text, Image, TouchableOpacity, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  TextInput,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Alert,
+  navigation,
+} from "react-native";
 
-import {useNavigation} from '@react-navigation/native';
+import firebase from "../../firebaseConfig";
 
+export default function CadastrarUsuario({ navigation }) {
 
-
-export default function createUser(){
-
-    const navegacao = useNavigation();
-
-    const [ nome, setNome] = useState('')
-    const [ telefone, setTelefone] = useState('')
-
-    function navegarParaTela4(){
-        navegacao.navigate('tela4');
-    }
-
-    function voltarParaLista(){
-      navegacao.navigate('tela2');
-    }
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
 
-    
+  function criarLoginParaUsuario() {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, senha)
+      .then(()=>{
+        navigation.navigate('Home')
+      })
+      .catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        Alert.alert(errorCode, errorMessage);
+        // Alert.alert("Erro ao registar usuário", errorMessage);
+      });
+  }
 
-    return(
+  return (
+    <View style={styles.container}>
+      <KeyboardAvoidingView>
         <View style={styles.container}>
-            
-       
-            
-            <KeyboardAvoidingView style={styles.container}>
-              <Text style={styles.textoCabecalho}>Adicionar Usuario </Text>
-                <View style={styles.container}>
-                  <Text style={{textAlign: 'center', fontSize: 20}}>Nome</Text>
-                  <TextInput  style={styles.textInput} onChangeText={nome=>setNome(nome)} value={nome} />
+          <Text style={{fontSize: 40, color: 'white', marginBottom: 30}}>Criar conta</Text>
+          <TextInput
+            style={styles.textInput}
+            autoCorrect={false}
+            placeholder="Usuário"
+          />
+          <TextInput
+            style={styles.textInput}
+            autoCorrect={false}
+            onChangeText={(email) => setEmail(email)}
+            value={email}
+            placeholder="E-mail"
+          />
 
-
-                  <Text style={{textAlign: 'center', fontSize: 20}}>Telefone</Text>
-                  <TextInput  style={styles.textInput} onChangeText={telefone=>setTelefone(telefone)} value={telefone} />
-                </View>
-
-                <View style={styles.containerView2} >
-                   
-
-                    <TouchableOpacity style={styles.botaoAcessar} >
-                        <Text style={styles.campoAcessarAcao}>Salvar</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.botaoVoltar} onPress={voltarParaLista} >
-                        <Text style={styles.campoVoltarAcao}>Voltar à Lista</Text>
-                    </TouchableOpacity>
-
-                    
-                </View>
-            </KeyboardAvoidingView>
+          <TextInput
+            style={styles.textInput}
+            autoCorrect={false}
+            onChangeText={(senha) => setSenha(senha)}
+            value={senha}
+            placeholder="Senha"
+          />
+          <View style={styles.acao}>
+            <TouchableOpacity
+              onPress={() => {
+                criarLoginParaUsuario();
+              }}
+            >
+              <View>
+                <Text style={styles.botaoAcao}>Concluir</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
-    
-
-    );
-    
+      </KeyboardAvoidingView>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#f5f5dc',
-      alignItems: 'center',
-      justifyContent: 'center',
-      
-    },
-    containerView1: {
-      flex: 1,
-      justifyContent: 'center',
-      
-    },
-    containerView2: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '80%',
-      marginTop: -50
-    },
-   
-    botaoAcessar: {
-      backgroundColor: '#00ff00',
-      height: 45,
-      width: '90%',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 7,
-      padding: 7,
-      margin: 5
-    },
-    botaoVoltar: {
-      backgroundColor: '#ff4500',
-      height: 45,
-      width: '90%',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 7,
-      padding: 7,
-      margin: 5
-    },
-    campoAcessarAcao: {
-      color: 'black',
-      fontSize: 18,
-    },
-    campoVoltarAcao: {
-      color: 'black',
-      fontSize: 18,
-    },  
-    botaocontaCriar: {
-      marginTop: 10,
-    },
-    contaCriarAcao: {
-      color: '#FFF'
-    },
-    textInput: {
-      width: '150%',
-      height: 40,
-      backgroundColor: 'white',
-      borderRadius: 0,
-      padding: 10,
-      marginBottom: 5,
-      textAlign: 'center'
-      
-    },
-    textoCabecalho: {
-      backgroundColor: 'azure',
-      color: 'black',
-      padding: 15,
-      marginBottom: 5,
-      borderBottomWidth: 1,
-      fontSize: 30,
-      borderRadius: 7,
-      marginTop: 10,
-      
-    },
-    
-})
+  container: {
+    flex: 1,
+    backgroundColor: "rgb(22,22,22)",
+    alignItems: "center",
+    justifyContent: "center",
+    color: 'white',
+  },
+  textInput: {
+    width: "150%",
+    height: 40,
+    color: "black",
+    borderRadius: 0,
+    paddingLeft: 10,
+    marginBottom: 10,
+    backgroundColor: "white",
+    borderRadius: 12,
+  },
+  botaoAcao: {
+    color: 'white',
+    display: 'flex',
+    flexDirection: 'row',
+    padding: 10,
+    margin: 20,
+    borderRadius: 5,
+    backgroundColor: 'orange',
+  },
+});

@@ -15,10 +15,9 @@ import { Button, Icon, ListItem } from "react-native-elements";
 import Usuarios from "../Usuarios";
 
 export default function Dashboard({navigation}) {
-   
   return (
     <View style={styles.container}>
-      <Text style={{color: "black", fontSize: 46, fontWeight: "800", marginBottom: 20}}>Dashboard</Text>
+      <Text style={{color: "black", fontSize: 46, fontWeight: "800", marginBottom: 80, marginTop: -200}}>Dashboard</Text>
       <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('UsuarioDashboard')}}>
         <Text style={styles.textoCabecalho}>Usuário</Text>
       </TouchableOpacity>
@@ -32,8 +31,8 @@ export default function Dashboard({navigation}) {
         <Text style={styles.textoCabecalho}>Dispositivo</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
-        <Text style={{color: 'white', alignContent: 'center', justifyContent: 'center', fontSize: 16, marginTop: 25}}>
-        Mauris varius cursus nunc non blandit. Nulla facilisi. Morbi pellentesque tortor et tortor scelerisque posuere. 
+        <Text style={{color: 'white', alignContent: 'center', justifyContent: 'center', fontSize: 16, marginTop: 25, textAlign: 'center'}}>
+        Acesse a visualização dos dados por área dentro do seu comércio 
         </Text>
       </View>
     </View>
@@ -66,7 +65,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   layout: {
-    width: "90%"
+    width: "90%",
+    textAlign: 'center',
+    marginBottom: 5
   },
   footer: {
     color: 'white',
