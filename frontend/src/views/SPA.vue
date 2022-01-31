@@ -10,6 +10,7 @@
         <router-link to="/dispositivo">Dispositivo</router-link>
         <router-link to="/sobre">Sobre</router-link>
       </section>
+      <router-link id="sair" to="/">Logout</router-link>
     </section>
     <div id="canva">
       <router-view></router-view>
@@ -45,15 +46,15 @@ export default {
 #menu {
   /* position: absolute; */
   float: left;
-  background-color: rgb(7, 5, 12);
+  background-color: rgb(231, 105, 47);
   color: aliceblue;
   padding-top: 40px;
   width: 16rem;
-  /* height: 100%; */
+  height: 60rem;
 }
 #menu h2 {
   font-size: 2.5rem;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
 }
 /* #menu h2::after {
   content: " »";
@@ -73,5 +74,18 @@ export default {
   justify-content: center;
   width: 85%;
   height: 100%;
+}
+section a {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: rgb(48, 48, 48);
+}
+
+#sair {
+  position: fixed;
+  margin-top: 18rem;
+  margin-left: -2rem;
+  color: rgb(165, 7, 7);
+  font-size: 1rem;
 }
 </style>
