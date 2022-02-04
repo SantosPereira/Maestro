@@ -30,6 +30,7 @@ export default function CadastrarUsuario({ navigation }) {
         var errorCode = error.code;
         var errorMessage = error.message;
         Alert.alert(errorCode, errorMessage);
+        alert("Erro ao registar usuário", errorMessage);
         // Alert.alert("Erro ao registar usuário", errorMessage);
       });
   }

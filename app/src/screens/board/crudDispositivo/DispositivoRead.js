@@ -14,6 +14,9 @@ export default function DispositivoRead({ navigation }) {
       .then((resposta) => {
         setDados(resposta.data);
         // console.log(dados);
+      })
+      .catch((resposta) => {
+        alert("Não foi possível acessar o servidor")
       });
     });
     
@@ -22,6 +25,9 @@ export default function DispositivoRead({ navigation }) {
       .get("http://localhost:8080/dispositivo/remover/" + id, header)
       .then((resposta) => {
         console.log(dados);
+      })
+      .catch((resposta) => {
+        alert("Não foi possível acessar o servidor")
       });
   };
 

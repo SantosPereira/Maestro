@@ -32,7 +32,8 @@ export default function App({ navigation }) {
       .catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        Alert.alert("Erro no login", "Problemas ao realizar o login");
+        alert("Problemas ao realizar o login");
+        // Alert.alert("Erro no login", "Problemas ao realizar o login");
       });
   }
 
