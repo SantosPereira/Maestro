@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(230,230,230)",
     borderRadius: 5,
     marginBottom: 10,
-    padding: 5
+    padding: 5,
+    width: "60%",
   },
   botao: {
     backgroundColor: "orange",

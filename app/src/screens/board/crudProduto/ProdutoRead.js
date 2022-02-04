@@ -14,6 +14,9 @@ export default function ProdutoRead({ navigation }) {
       .then((resposta) => {
         setDados(resposta.data);
         // console.log(dados);
+      })
+      .catch((resposta) => {
+        alert("Não foi possível acessar o servidor")
       });
     });
     
@@ -22,6 +25,9 @@ export default function ProdutoRead({ navigation }) {
       .get("http://localhost:8080/produto/remover/" + id, header)
       .then((resposta) => {
         console.log(dados);
+      })
+      .catch((resposta) => {
+        alert("Não foi possível acessar o servidor")
       });
   };
 
