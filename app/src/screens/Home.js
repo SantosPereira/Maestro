@@ -28,7 +28,6 @@ export default function App({ navigation }) {
       .signInWithEmailAndPassword(email, senha)
       .then(() => {
         navigation.navigate("Dashboard");
-        console.log(email);
       })
       .catch(function (error) {
         var errorCode = error.code;
@@ -36,30 +35,6 @@ export default function App({ navigation }) {
         Alert.alert("Erro no login", "Problemas ao realizar o login");
       });
   }
-
-  /* function logOutFirebase(){
-    firebase.auth().signOut().then(function(){
-      alert('Deslogado com sucesso')
-    }).catch(function(error){
-      alert('Falha')
-    });
-  } */
-
-  /* function createUserFirebase(){
-
-
-    firebase.auth().createUserWithEmailAndPassword(email, senha).catch(function(error){
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorCode, errorMessage);
-    });
-  } */
-
-  const cadastro = () => {
-    if (cadastro != null) {
-      Alert.alert("Preencha os campos");
-    }
-  };
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
@@ -92,6 +67,7 @@ export default function App({ navigation }) {
       />
 
       <TextInput
+        secureTextEntry={true}
         style={styles.textInput}
         onChangeText={(senha) => setSenha(senha)}
         value={senha}
