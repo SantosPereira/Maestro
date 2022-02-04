@@ -18,16 +18,16 @@ export default function Dashboard({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={{color: "black", fontSize: 46, fontWeight: "800", marginBottom: 80, marginTop: -200}}>Dashboard</Text>
-      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('UsuarioDashboard')}}>
+      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('Usuários cadastrados')}}>
         <Text style={styles.textoCabecalho}>Usuário</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('ProdutoDashboard')}}>
+      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('Produtos cadastrados')}}>
         <Text style={styles.textoCabecalho}>Produto</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('EstoqueDashboard')}}>
+      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('Estoques cadastrados')}}>
         <Text style={styles.textoCabecalho}>Estoque</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('DispositivoDashboard')}}>
+      <TouchableOpacity style={styles.layout} onPress={()=>{navigation.navigate('Dispositivos cadastrados')}}>
         <Text style={styles.textoCabecalho}>Dispositivo</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
